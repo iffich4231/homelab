@@ -12,4 +12,31 @@
     - ran the first command *ip addr show eth0* that verified layer 3 (Network Layer)
     - returned the IP Address *192.168.56.102*
 
-
+## 22.03.2026
+- installed **Fedora Workstation 43**
+- **errors**    
+    - had issues with host storage access when creating the vm.
+        - solved by running virtual box as an administrator
+    - powered up the vm and faced graphic issues with Fedora
+        - hard reseted the vm
+- in order to rescale the window I needed to install VirtualBox Guest Additions
+- *sudo dnf install kernel-devel kernel-headers gcc make perl* ran to update and install build tools
+- encountered security handshake *GPG (GNU Privacy Guard)*
+- *OpenPGP Key* fedora uses a cryptographic key to verify the integrity of the corde
+- A practical example of *Supply Chain Security*
+- executed *sudo mkdir -p /mnt/cdrom*
+- executed *sudo mount /dev/cdrom /mnt/cdrom*
+    - it gave a WARNING saying mounted read-only since we are only using the cdrom for reading installation script
+- executed *sudo /mnt/cdrom/VBoxLinuxAdditions.run* and finished wit *sudo reboot*
+- confirmed the driver installatin with *lsmod | grep vbox* that retuned vboxguest
+- executed *sudo nano /etc/gdm/custom.conf* and uncommented the *#WaylandEnable=false*, than executed *sudo reboot*
+- got stuck in "Emergency Mode / Console hang"
+    - *ctrl + alt + f3* to enter the backdoor terminal and logged in
+    - executed "sudo /opt/VBoxGuestAdditions-*/uninstall.sh" to remove the broken driver
+    - still no luck
+    - reedited the *custom.conf* back to original and rebooted successfully
+- retried *sudo dnf install virtualbox-guest-additions -y* that said already installed
+- removed the ghost installion *sudo dnf remove virtualbox-guest-additions -y*
+- executed *sudo mount /dev/cdrom /mnt* & *sudo /mnt/VBoxLinuxAdditions.run* followed by *sudo poweroff*
+- changed graphics controller back to *VMSVGA* and enabled 3D Acceleration
+- still couldn't change the resolution
