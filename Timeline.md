@@ -40,3 +40,14 @@
 - executed *sudo mount /dev/cdrom /mnt* & *sudo /mnt/VBoxLinuxAdditions.run* followed by *sudo poweroff*
 - changed graphics controller back to *VMSVGA* and enabled 3D Acceleration
 - still couldn't change the resolution
+
+## 27.03.2026
+- fedora aborted as the virtual box and hardware had a conflict and I was getting an e_fail
+- tried every possible way
+- had to reinstall the virtual machine
+- by reinstalling encountered again an e_fail issue
+- had to escalate the privilege of VBoxSVC.exe and VirtualBox.exe to admin, which resolved the issue
+
+## 28.03.2026
+- continued with the reinstall
+- created a clone to have a backup for next breakdown
